@@ -4,7 +4,6 @@ query = {
   '$limit' => 1000,
   '$order' => 'created_date DESC',
   '$where' => <<-WHERE.oneline
-    created_date >= '#{SpyGlass::Utils.last_week_floating_timestamp}' AND
     longitude IS NOT NULL AND
     latitude IS NOT NULL AND
     complaint_type LIKE 'Public Toilet%' AND
