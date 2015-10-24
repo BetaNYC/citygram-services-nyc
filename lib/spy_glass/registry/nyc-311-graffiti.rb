@@ -7,13 +7,13 @@ query = {
     created_date >= '#{SpyGlass::Utils.last_week_floating_timestamp}' AND
     longitude IS NOT NULL AND
     latitude IS NOT NULL AND
-    descriptor LIKE 'Pothole%' AND
+    (complaint_type = 'Graffiti' OR descriptor LIKE '%Graffiti%') AND
     unique_key IS NOT NULL
   WHERE
 }
 
 opts = {
-  path: '/nyc-311-potholes',
+  path: '/nyc-311-graffiti',
   cache: SpyGlass::Cache::Memory.new(expires_in: 300),
   source: 'https://data.cityofnewyork.us/resource/fhrw-4uyv.json?'+ Rack::Utils.build_query(query)
 }
@@ -55,3 +55,4 @@ SpyGlass::Registry << SpyGlass::Client::Socrata.new(opts) do |collection|
     'features' => features
   }
 end
+
