@@ -7,7 +7,13 @@ query = {
     created_date >= '#{SpyGlass::Utils.last_week_floating_timestamp}' AND
     longitude IS NOT NULL AND
     latitude IS NOT NULL AND
-    descriptor LIKE 'Public Toilet%' AND
+(
+      (descriptor LIKE '%Public Toilet%') OR
+      (descriptor LIKE '%Noise - Park%') OR
+      (descriptor LIKE '%Sanitation Condition%') OR
+      (descriptor LIKE '%Street Condition%') OR
+      (descriptor LIKE '%Sidewalk Condition%')
+) AND
     unique_key IS NOT NULL
   WHERE
 }
