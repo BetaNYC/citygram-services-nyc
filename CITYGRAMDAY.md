@@ -7,3 +7,4 @@ Please create a pull-request to add your github username to the list of attendee
 ### Attendees
 
 * [dirkkelly](https://github.com/dirkkelly/)
+* [fma2](https://github.com/fma2)
