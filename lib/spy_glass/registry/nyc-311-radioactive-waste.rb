@@ -7,11 +7,7 @@ query = {
     created_date >= '#{SpyGlass::Utils.last_week_floating_timestamp}' AND
     longitude IS NOT NULL AND
     latitude IS NOT NULL AND
-    (
-      descriptor LIKE 'User Unlicensed' OR 
-      descriptor LIKE 'Material Stored Improperly' OR 
-      descriptor LIKE 'Contamination Risk'
-    ) AND
+    complaint_type = 'Radioactive Material' AND
     unique_key IS NOT NULL
   WHERE
 }
