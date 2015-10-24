@@ -8,12 +8,13 @@ query = {
     longitude IS NOT NULL AND
     latitude IS NOT NULL AND
 (
-      (descriptor LIKE '%Public Toilet%') OR
-      (descriptor LIKE '%Noise - Park%') OR
-      (descriptor LIKE '%Sanitation Condition%') OR
-      (descriptor LIKE '%Street Condition%') OR
-      (descriptor LIKE '%Sidewalk Condition%')
+(descriptor LIKE '%Dirty/Graffiti%') OR
+(descriptor LIKE '%Damaged Toilet/Sink%') OR
+(descriptor LIKE '%Lighting/Electrical%') OR
+(descriptor LIKE '%Damaged Other%') OR
+(descriptor LIKE '%Flooded%')
 ) AND
+
     unique_key IS NOT NULL
   WHERE
 }
