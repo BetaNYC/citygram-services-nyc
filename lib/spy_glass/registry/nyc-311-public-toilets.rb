@@ -7,14 +7,7 @@ query = {
     created_date >= '#{SpyGlass::Utils.last_week_floating_timestamp}' AND
     longitude IS NOT NULL AND
     latitude IS NOT NULL AND
-    (
-      (descriptor LIKE '%Dirty/Graffiti%') OR
-      (descriptor LIKE '%Damaged Toilet/Sink%') OR
-      (descriptor LIKE '%Lighting/Electrical%') OR
-      (descriptor LIKE '%Damaged Other%') OR
-      (descriptor LIKE '%Flooded%')
-    ) AND
-
+    complaint_type = 'Public Toilet' AND
     unique_key IS NOT NULL
   WHERE
 }
