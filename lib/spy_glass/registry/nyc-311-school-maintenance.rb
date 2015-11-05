@@ -4,12 +4,11 @@ query = {
   '$limit' => 1000,
   '$order' => 'created_date DESC',
   '$where' => <<-WHERE.oneline
-    created_date >= '#{SpyGlass::Utils.last_week_floating_timestamp}' AND
+    created_date >= '#{28.days.ago.iso8601}' AND
     longitude IS NOT NULL AND
     latitude IS NOT NULL AND
-    descriptor LIKE 'Pothole%' AND
+    complaint_type = "School Maintenance" AND
     unique_key IS NOT NULL
-  WHERE
 }
 
 opts = {
